@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- html标签里面的lang属性是用来设置网页的语言的 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>烘培工坊</title>
+  <!-- 用link引入css样式表格 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!-- button是按钮，class是类名，汉堡选单的字符，在屏幕小的时候才出现，点击的时候显示导览列 -->
+    <button class="menu">&#9776;</button>
+    <h1>烘培工坊</h1>
+    <nav>
+      <!-- ul是无序列表，li是列表项，a是超链接 -->
+      <ul>
+      <li><a href="#">最近更新</a></li>
+      <li><a href="#">新作上市</a></li>
+      <li><a href="#">联系我们</a></li>
+      <li><a href="#">面包类型</a></li>
+       </ul>
+    </nav>
+  </header>
+    
+  <main>  
+    <section class="intro">
+      <h2>欢迎来到我们的烘培工坊</h2>
+    <p><strong>欢迎来到我们的烘培工坊，享受美味的糕点和面包。</strong></p>
+    <p><a href="https://www.example.com">了解更多</a></p>
+    </section>
+      
+    <section class="slogan">
+      <!--在 HTML 中，<blockquote> 标签用于表示引用的内容。通常用于引用其他来源的文本-->
+      <blockquote>"烘培工坊的宗旨是为顾客提供最优质的烘焙产品 <br>和服务，欢迎光临我们的店铺！"</blockquote>
+     </section>
+
+    <section class="shop">
+      <!-- img里面的src写的是文件的相对路径-->
+      <img src="images/面包店.jpg" alt="烘培工坊大安店">
+
+      <div class="info">
+      <h2>8月1日大安旗舰店隆重开张</h2>
+      <p>享受悠闲的时光, 内用作为区美食相伴，<br>
+      即日起来店消费加line好友可以获得精致小点心，等您来一同品味</p>
+      </div>
+    </section>
+
+    <!-- 产品介绍 -->
+    <section class="product">
+      <div>
+        <img src="images/p1.jpeg" alt="产品1">
+        <h3>产品1</h3>  
+        <p>产品1的介绍Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, velit!</p>
+      </div>
+      <div>
+        <img src="images/p2.jpeg" alt="产品2">
+        <h3>产品2</h3>  
+        <p>产品3的介绍Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nulla pariatur ipsa!</p>
+      </div>
+      <div>
+        <img src="images/p3.jpeg" alt="产品3">
+        <h3>产品3</h3>  
+        <p>产品3的介绍Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolor? Sed, harum.</p>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <p>请订阅我的Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, quos?邮件</p>
+      <form>
+        <input type="email" placeholder="输入你的邮箱" required> 
+        <button type="submit">订阅</button>
+      </form>
+    </section>
+  </main>  
+
+    <footer>
+      <p>Copyright @2025 MISSAV</p>
+    </footer>   
+</body>
+</html>

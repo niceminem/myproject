@@ -1,0 +1,289 @@
+
+/* 因为css预设里面margin和padding是有值，这样可能对我们的设置造成干扰，所以先把他们变成0， */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* padding，margin设定一个值的话是四周，4个值的话顺序是上右下左，3个值的话中间的值代表的是上，左右，下 */
+
+header {
+  /* rgba最后一个数字是控制透明度 */
+  background-color: rgba(42, 20, 14, 0.8);
+  /* height：用于设置元素的高度。它定义了元素的总高度，包括内容、内边距和边框。
+line-height：用于设置行高，即每行文本的高度。它主要影响文本的垂直间距，使文本在垂直方向上更加均匀和美观。 */
+  height: 70px;
+  /* 让header的宽度与视窗同宽 */
+  width: 100%;
+  /* 让导览列固定 */
+  position: fixed;
+}
+
+/* 不过如果header的position变成fixed之后，整体版面会向上偏移，其他元素感知不到他了，所以可以调整第二个区块的高度变大一点 */
+
+/* 让header里面的ul的position设置为绝对定位，这样ul就可以以他的父元素，也就是header元素来移动 */
+header ul {
+  position : absolute;
+  /* 距离右边缘5vw，距离上方为0 */
+  right: 5vw;
+  top: 0; 
+  /* ul 使用 line-height 属性来设置每行文本的高度为 80 像素。这是为了使 ul 内的文本在垂直方向上居中对齐，并与 header 的高度一致。 */
+  line-height: 80px;
+}
+
+/* h1是烘培工坊这4个字，定位方式用的和header里面的ul是一样的都是绝对定位 */
+h1 {
+  color: white;
+  position: absolute;
+  left: 110px;
+  top:0;
+  line-height: 80px;
+  /* h1保留文字，有助于搜索引擎理解，用加上背景图片的方法加上logo，用bgr去掉图片重复，bgp让图片置于h1的中心，然后用tin把文字推远 */
+  background-image: url(images/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 50px; /* 设置背景图片的高度为50px，宽度自动调整 */
+  width: 210px;
+  text-indent: -999px;
+
+}
+
+header a {
+  color: white;
+  /* 去掉链接文本下面的默认的下划线的装饰底线 */
+  text-decoration: none;
+}
+/* 在悬停a标签的时候让下面的底线显示出来，引导用户注意力,让用户知道这个元素是可以点击的 */
+header a:hover {
+  text-decoration: underline;
+}
+
+/* 因为ul是块元素，他会独占一行，所以将他转成行内元素 */
+header li {
+  display: inline;
+  /* 调成视窗宽度的4%，这是一个相对单位*/
+  margin-right: 4vw;
+}
+
+/* 有3个section，所以不同的section，用不同的class，这样就可以分别设置他们的css样式 */
+.intro {
+  background-color:antiquewhite;
+  color: white;
+  xheight: 85vh;
+  /* 因为上面的header的position是fix了，这个版面会上移，所以我们加大这个区块高度 */
+  height: 95vh;
+  /* 设置背景图片，不让他重复拼贴，让覆盖整个元素，然后让图片垂直居中 */
+  background-image: url(images/banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* 父元素用display：flex可以让里面的元素自由排列 这是除了用position的另一种方法 */
+  /* 让intro里面的元素变成横向排列 */
+  display: flex;
+  /* 维持纵向堆叠 */
+  flex-direction: column;
+  /* 水平对齐和垂直对齐都设置为中央  */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 标题放大 */
+/* 因为上面的header的position是fix了，这个版面会上移，所以我们调整下上边距*/
+  .intro h2 {
+  font-size: 60px;
+  margin-top: 6px;
+}
+
+.intro p {
+  color: white;
+  font-size: 18px;
+  /* 让行与行之间不会太拥挤 */
+  margin: 25px 0;
+}
+
+.intro a {
+  color: white;
+  text-decoration: none;
+  border: white 1px solid;
+  padding: 10px 20px;
+  /* 让按钮变成圆角 */
+  border-radius: 5px;
+}
+
+/* 修改引用话语的样式 */
+.slogan {
+  background-color: green;
+  color: white;
+  /* 加大区块高度 */
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  /* 使用 line-height 来调整文本行之间的间距，使文本在垂直方向上更加均匀和美观。
+使用 margin 来调整元素与其他元素之间的距离，控制布局和间距 */
+  line-height: 1.8em;
+}
+
+footer {
+  background-color: black;
+  color: #b7b7b7;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* 用flex布局，让shop里面的元素横向排列,html里面用div把里面的几个几个元素包到一起了 */
+.shop {
+  display: flex;
+}
+
+/* 在这个示例中，.shop 元素被设置为一个 Flex 容器，里面的 <img> 元素的宽度被设置为其父容器 .shop 宽度的 50%。这意味着图片会占据 .shop 容器宽度的一半，剩下的一半空间由其他内容（如 .info）占据。 */
+.shop img {
+  width: 50%;
+}
+
+.info {
+  width: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+/* 居中对齐+ 行距 */
+.info p {
+  text-align: center;
+  line-height: 2em;
+}
+  
+.product {
+  background-color: #f5f5f5;
+  display: flex;
+  /* 让里面的div均匀的分布在横轴上 */
+  justify-content: space-between;
+  /* 垂直对齐设置在中央 */
+  align-items: center; 
+  padding: 100px 180px 80px;
+}
+
+.product div {
+  width: 400px;
+  text-align: center;
+}
+/* 在这个示例中，.product 元素被设置为一个 Flex 容器，里面的每个 div 元素的宽度被设置为 400 像素。.product img { width: 100%; } 这行代码确保了每个 div 元素中的 <img> 元素的宽度占据其父容器 div 的 100%，即图片会自动调整大小以适应 div 的宽度。 */
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+.product h3 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+.product p {
+  font-size: 14px;
+  /* 加大行距 */
+  line-height: 1.8em;
+}
+
+.newsletter {
+  background-color: lightgreen;
+  color: white;
+  display: flex;
+  padding: 60px;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+}
+
+.newsletter p{
+  margin-bottom: 20px;
+}
+
+.newsletter input, .newsletter button {
+  background-color: transparent;
+  color: white;
+  border: white 1px solid;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.newsletter input {
+  margin-right: 10px;
+  width: 200px;
+}
+
+.newsletter button {
+  width: 80px;
+  cursor: pointer;
+}
+/* 这行 CSS 代码的作用是设置 <input> 元素中的占位符文本的颜色为白色。 */
+input::placeholder {
+  color: white;
+}
+
+/* 要去掉输入框在获得焦点时显示的默认黑色轮廓，可以使用 CSS 的 outline 属性将其设置为 none。然后换成自己喜欢的效果 */
+input:focus {
+  outline: none;
+  border-color: red;
+}
+/* 在银幕足够大的时候不用显示这个东西 */
+.menu {
+  display: none;
+}
+
+/* 响应式设计：在不同的银幕下维持内容的比例不变形 在屏幕宽度小于 1024 像素时应用以下 CSS 代码  */
+@media screen and (max-width: 1024px) {
+  header ul {
+    display: none;
+  }
+  header h1 {
+    position: absolute; /* 确保 h1 元素是绝对定位 */
+    left: 50%; /* 将 h1 元素的左边缘与视口的中心对齐 */
+    transform: translateX(-50%); /* 使用 transform 属性将 h1 元素水平居中 */
+  }
+  .intro h2 {
+    font-size: 40px;
+  }
+  /*mean的展开需要用到js就先不写了; */
+  .menu{
+    display: block;
+    background-color: transparent;
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    /* 去掉阴影 */
+    border: none;
+    cursor: pointer;
+  }
+
+  .shop {
+    flex-direction: column;
+  }
+  .shop img {
+    width: 100%;
+  }
+  .info {
+    width: 100%;
+    padding: 40px 0;
+  }
+  .info h2 {
+    font-size: 30px;
+  }
+  .product {
+    flex-direction: column;
+    padding: 60px 0;
+  }
+  .product div {
+    margin-bottom: 40px;
+  }
+} 
